@@ -9,6 +9,10 @@ def intake_data(method=0):
     data.replace("n.d.", np.nan, inplace = True)
     data["PIP"] = pd.to_numeric(data["PIP"])
     data["TV"] = pd.to_numeric(data["TV"]) 
+    data["sex"] = data["sex"].astype(str)
+    data = data.replace(['M', 'F'], [0, 1])
+    data["sex"] = pd.to_numeric(data["sex"])
+    data.rename(columns = {'death = 1 ': 'death'}, inplace=True)
     imputation_methods = [data.mean, data.median]
 
     data.fillna(imputation_methods[method](), inplace=True) 
