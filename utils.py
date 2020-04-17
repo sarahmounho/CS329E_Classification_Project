@@ -33,6 +33,7 @@ def intake_data(method = 0, upsample = True):
         from imblearn import over_sampling
     except Exception as e:
         print(f"looks like imblearn isn't installed! skipping upsampling: {str(e)}")
+        return (data_x, data_y)
         
     oversample = over_sampling.SMOTE()
     X_SMOTE, Y_SMOTE = oversample.fit_resample(data_x, data_y)
