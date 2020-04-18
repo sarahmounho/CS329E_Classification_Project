@@ -2,7 +2,6 @@ import pandas as pd
 import numpy as np
 
 def intake_data(method = 0, upsample = True):
-    print("TEST")
     data_unedited = pd.read_csv("data_unedited.csv")
     data = data_unedited[:197]
     data = data.drop(columns = "Unnamed: 0")
