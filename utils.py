@@ -18,7 +18,7 @@ def intake_data(method = 0, upsample = True):
     data.fillna(imputation_methods[method](), inplace=True)
 
     # these are the anomalies detected in the exploration notebook file 
-    indexes_to_drop = [70, 135, 162, 189]
+    indexes_to_drop = [18, 135, 162, 189]
     for ind in indexes_to_drop:
       data = data.drop(data.index[ind])
 
